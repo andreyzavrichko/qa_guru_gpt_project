@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage {
     SelenideElement
@@ -21,6 +20,17 @@ public class LoginPage {
         loginButton.click();
         return this;
     }
+
+    public LoginPage loginType(String login) {
+        loginInput.type(login);
+        return this;
+    }
+
+    public LoginPage passType(String pass) {
+        passwordInput.type(pass);
+        return this;
+    }
+
 
     public LoginPage checkProductsTitle(String value) {
         titleProducts.shouldHave(text(value));
@@ -39,7 +49,11 @@ public class LoginPage {
 
     }
 
-
+    public void auth() {
+        loginInput.type("standard_user");
+        passwordInput.type("secret_sauce");
+        loginButton.click();
+    }
 
 
 }
