@@ -10,7 +10,7 @@ repositories {
 def allureVersion = "2.14.0",
     selenideVersion = "7.4.3",
     junitVersion = "5.7.2",
-    aspectjweaverVersion = "1.9.6",
+    aspectjweaverVersion = "1.9.22.1",
     ownerVersion = "1.0.12",
     assertjVersion = "3.19.0",
     slf4jVersion = "1.7.29"

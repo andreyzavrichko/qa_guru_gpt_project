@@ -24,14 +24,9 @@ public class TestBase {
 
     @AfterEach
     public void addAttachments() {
-//        String sessionId = DriverUtils.getSessionId();
-//
-//        AllureAttachments.addScreenshotAs("Last screenshot");
-//        AllureAttachments.addPageSource();
-//        Selenide.closeWebDriver();
-//
-//        if (Project.isVideoOn()) {
-//            AllureAttachments.addVideo(sessionId);
-//        }
+        AllureAttachments.addScreenshotAs("Last screenshot");
+        AllureAttachments.addPageSource();
+        AllureAttachments.addBrowserConsoleLogs();
+        Selenide.closeWebDriver();
     }
 }
