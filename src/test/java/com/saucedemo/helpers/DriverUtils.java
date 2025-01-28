@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
@@ -22,7 +23,7 @@ public class DriverUtils {
     }
 
     public static byte[] getPageSourceAsBytes() {
-        return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+        return Objects.requireNonNull(getWebDriver().getPageSource()).getBytes(StandardCharsets.UTF_8);
     }
 
     public static String getConsoleLogs() {
