@@ -10,30 +10,35 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
+@DisplayName("Products Tests")
 public class ProductsTest extends TestBase {
     LoginPage loginPage = new LoginPage();
     ProductsPage productsPage = new ProductsPage();
 
     @BeforeEach
     void auth() {
-        step("Открыть сайт", () -> open(baseUrl));
-        loginPage.auth();
+        step("Открыть сайт", () ->
+                open(baseUrl));
+        step("Открыть сайт", () ->
+                loginPage.auth());
     }
 
     @Test
-    @DisplayName("Успешная авторизация")
+    @DisplayName("Проверка успешного добавления товара в корзину")
     void addToCardTest() {
-        step("Заполнить логин и пароль", () -> productsPage.clickAddBtn());
-        step("Проверить переход на главную страницу", () -> productsPage.checkCounter("1"));
+        step("Добавить товар в корзину", () ->
+                productsPage.clickAddBtn());
+        step("Проверить счётчик в корзине", () ->
+                productsPage.checkCounter("1"));
     }
 
 
     @AfterEach
     void deleteGoods() {
-        productsPage.clickRemoveBtn();
+        step("Удалить добавленный товар из корзины", () ->
+                productsPage.clickRemoveBtn());
     }
 
 }
