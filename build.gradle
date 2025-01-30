@@ -65,3 +65,19 @@ tasks.withType(Test).configureEach {
         }
     }
 }
+
+def registerTestTask(String name, String tag) {
+    tasks.register(name, Test) {
+        useJUnitPlatform {
+            includeTags tag
+        }
+        testLogging.showStandardStreams = true
+    }
+}
+
+registerTestTask('testCheckout', 'checkout')
+registerTestTask('testRegress', 'regress')
+registerTestTask('testSmoke', 'smoke')
+registerTestTask('testGoods', 'goods')
+registerTestTask('testAuth', 'auth')
+registerTestTask('testProducts', 'products')

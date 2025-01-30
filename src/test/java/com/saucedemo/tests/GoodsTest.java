@@ -3,10 +3,11 @@ package com.saucedemo.tests;
 import com.saucedemo.TestBase;
 import com.saucedemo.pages.LoginPage;
 import com.saucedemo.pages.ProductsPage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
@@ -26,6 +27,10 @@ public class GoodsTest extends TestBase {
     }
 
     @Test
+    @Story("Store")
+    @Feature("Goods")
+    @Tags({@Tag("goods"), @Tag("smoke")})
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка успешного открытия карточки товара")
     void openCardGoodTest() {
         step("Открыть карточку товара", () ->

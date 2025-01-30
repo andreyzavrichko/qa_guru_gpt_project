@@ -2,7 +2,13 @@ package com.saucedemo.tests;
 
 import com.saucedemo.TestBase;
 import com.saucedemo.pages.LoginPage;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -14,6 +20,10 @@ public class LoginTest extends TestBase {
     LoginPage loginPage = new LoginPage();
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("smoke")})
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка успешной авторизации")
     void loginSuccessTest() {
         step("Открыть сайт", () ->
@@ -25,6 +35,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("regress")})
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка ошибки обязательности полей")
     void loginWithoutUsernameAndPasswordTests() {
         step("Открыть сайт", () ->
@@ -36,6 +50,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("regress")})
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка ошибки обязательности поля Username")
     void loginWithoutUsernameTests() {
         step("Открыть сайт", () ->
@@ -49,6 +67,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("regress")})
+    @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Проверка ошибки обязательности поля Password")
     void loginWithoutPasswordTests() {
         step("Открыть сайт", () ->
@@ -62,6 +84,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("smoke")})
+    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка ошибки заблокированного пользователя")
     void loginBlockedUserTests() {
         step("Открыть сайт", () ->
@@ -73,6 +99,10 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    @Story("Auth")
+    @Feature("Login")
+    @Tags({@Tag("auth"), @Tag("regress")})
+    @Severity(SeverityLevel.MINOR)
     @DisplayName("Проверка ошибки несуществующего пользователя")
     void userNotFoundTests() {
         step("Открыть сайт", () ->
